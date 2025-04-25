@@ -1,76 +1,141 @@
 @keyframes fromRight {
   from {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(30%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
 @keyframes fromLeft {
   from {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-30%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
 @keyframes fromBelow {
   from {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(30%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes boing {
-  from {
-    transform: scale(0);
+  0% {
+    transform: scale(0.8);
     opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
 @keyframes dialogAppear {
   from {
     background-color: transparent;
+    backdrop-filter: blur(0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
   }
 }
 
 @keyframes spinner {
   from {
-    transform: rotate(0turn)
+    transform: rotate(0turn);
   }
-
   to {
-    transform: rotate(1turn)
+    transform: rotate(1turn);
   }
 }
 
 @keyframes toggle {
+  0%, 100% {
+    transform: scale(1);
+  }
   50% {
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
 }
 
 @keyframes fadeIn {
   from {
-    top: 100%;
     opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
   to {
-    top: 100%;
     opacity: 0;
+    transform: translateY(20%);
   }
 }
 
 @keyframes zoomout {
   from {
-    transform: scale(2);
+    transform: scale(1.5);
     opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
 @keyframes like {
-  50% {
-    transform: scale(0.9);
+  0%, 100% {
+    transform: scale(1);
   }
+  15% {
+    transform: scale(1.2);
+  }
+  30% {
+    transform: scale(0.95);
+  }
+  45% {
+    transform: scale(1.05);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+/* New utility classes for animations */
+.animate {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fast {
+  animation-duration: 0.2s;
+}
+
+.animate-slow {
+  animation-duration: 0.5s;
 }
