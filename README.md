@@ -1,20 +1,33 @@
-<div align="center">
- <a href="https://Cubic Music.netlify.app"><img src="public/Cubic Music_thumbnail_max.webp" width="70%"></a>
+# 🎵 CubicStream
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fbbcc532-3ef6-41fc-b61e-26cb17cfb6ba/deploy-status)](https://app.netlify.com/sites/Cubic Music/deploys)
-[![Telegram Members](https://img.shields.io/endpoint?style=flat&url=https://mogyo.ro/quart-apis/tgmembercount?chat_id=Cubic Musictg)](https://t.me/Cubic Musictg)
-[![Telegram Online](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2FCubic Musictg)](https://t.me/Cubic Musictg)
-[![Matrix](https://img.shields.io/matrix/Cubic Music:matrix.org?label=Matrix)](https://matrix.to/#/#Cubic Music:matrix.org)
+**CubicStream** is a sleek and powerful music web app that lets you stream audio from YouTube and other online sources in one smooth interface.
 
-</div>
+---
 
+## 🚀 Features
 
-> [**Cubic Music**](https://Cubic Music.pp.ua) is the fastest (56KB to load) and the lightest (7.5K LOC only) centralised audio streaming web application built with an unprecedented hybrid [HTML + SolidJS] approach for maximum efficiency.
->  Listen to **Podcasts**, **Audiobooks**, **Music**, **Livestreams** and other Audio focused YouTube Videos, even under the lowest network conditions.
+- 🎧 Search & stream music from YouTube
+- 🌐 Pull data from multiple streaming sources
+- 💡 Fast, lightweight, and responsive UI
+- 💾 Easy-to-use interface for all devices
 
-> As covered in https://blog.csdn.net/gitblog_00024/article/details/139895018 and https://medevel.com/Cubic Music-youtube/
+---
 
-## What else are you getting ?
+## 🛠️ Tech Stack
+
+- HTML, CSS, JavaScript
+- Node.js / Python / (insert your backend tech)
+- YouTube Data API / other streaming APIs
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/cybruGhost/CubicStream.git
+cd CubicStream
+
+## Features
 - **Queuing Features** 🚦
 - **Cubic Music collections** 🎷: create your own playlists disconnected from YouTube, share it with the world with share link.
 - **YouTube Playlists** 🎶: View them, queue them to the player. You can also both subscribe and import it into your own collections.
@@ -27,47 +40,19 @@
 - **For You** 🎻 : Get audio tailored specifically for you based on your Favorites, generated on device without any violation of privacy.
 - **Parental Controls** 👨‍👦 : Disable Parts of the application according to your needs.
 
-![1000012574](https://github.com/user-attachments/assets/450a1eed-0fb6-4fba-8d4a-c18431b935ad)
-![1000012580](https://github.com/user-attachments/assets/4abcd09d-d2ef-4e26-8632-1a50cedfbab8)
-![1000012579](https://github.com/user-attachments/assets/adf1254a-e565-4fb7-ab51-613bbe69e677)
 
 
 
-
-
-## WHY / The story of Cubic Music with [n-ce](https://github.com/n-ce)
-- I was an avid [NewPipe](https://github.com/TeamNewPipe/NewPipe) user back in 2021, which I used for background playback.
-- I noticed it wasn't able to stream under low network conditions.
-- So i decided to create an [issue](https://github.com/TeamNewPipe/NewPipe/issues/5838).
-- Upon finding no active resolution on the issue, I took it to myself and created this project on Jan 2022.
-
-
-## Usage 👆
-- Instance
-  - [Official](https://Cubic Music.pp.ua)
-  - [Secondary](https://Cubic Music.netlify.app)
-  - [Testing](https://dev--Cubic Music.netlify.app)
-- Full Usage Guide is available at [wiki>usage](https://github.com/n-ce/Cubic Music/wiki/usage)
-- Join our Telegram Community [@Cubic Musictg](https://t.me/Cubic Musictg)
-- Join our Matrix Community
-[@Cubic Music](https://matrix.to/#/#Cubic Music:matrix.org)
-
-
-## License 📝
-> [Read More](https://github.com/n-ce/Cubic Music/blob/main/LICENSE).
-
-## Contributing 📋
-> This project is actively seeking contributors, [Read More Here](https://github.com/n-ce/Cubic Music/blob/main/CONTRIBUTING.md).
 
 ## Development 🔧
 1. Prerequisites : Node.js , Beginner TypeScript Knowledge. 
 2. Clone repository with
 ```
-git clone https://github.com/n-ce/Cubic Music --depth 1
+gh repo clone cybruGhost/CubicStream
 ```
 or
 ```
- gh repo clone n-ce/Cubic Music -- --depth 1
+gh repo clone cybruGhost/CubicStream
 ```
 3. Move to Directory, Update & Install Dependencies
 ```
@@ -116,11 +101,7 @@ dist/assets/hls-CySapf1N.js                      399.85 kB │ gzip: 123.78 kB
 ✓ built in 9.51s
 ```
 
-## Translations 🗺️
-[![Translation status](https://hosted.weblate.org/widget/Cubic Music/multi-auto.svg)](https://hosted.weblate.org/engage/Cubic Music/)
-Cubic Music is being translated into multiple languages using [Weblate](https://hosted.weblate.org/projects/Cubic Music/web).
- 
-## Acknowledgements 🙏
+## Tools
 - [Uma](https://github.com/n-ce/Uma) - Instances Manager
 - [Piped](https://github.com/teampiped/piped) - YouTube Data API & Adaptive Streaming Proxy
 - [Invidious](https://invidious.io) - YouTube Data API & Progressive Streaming Proxy
