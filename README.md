@@ -52,11 +52,11 @@ cd CubicStream
 1. Prerequisites : Node.js , Beginner TypeScript Knowledge. 
 2. Clone repository with
 ```
-git clone https://github.com/n-ce/Cubic Music --depth 1
+gh repo clone cybruGhost/CubicStream
 ```
 or
 ```
- gh repo clone n-ce/Cubic Music -- --depth 1
+gh repo clone cybruGhost/CubicStream
 ```
 3. Move to Directory, Update & Install Dependencies
 ```
