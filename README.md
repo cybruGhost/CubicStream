@@ -105,7 +105,7 @@ dist/assets/hls-CySapf1N.js                      399.85 kB │ gzip: 123.78 kB
 ✓ built in 9.51s
 ```
 
-## Acknowledgements 🙏
+## Tools
 - [Uma](https://github.com/n-ce/Uma) - Instances Manager
 - [Piped](https://github.com/teampiped/piped) - YouTube Data API & Adaptive Streaming Proxy
 - [Invidious](https://invidious.io) - YouTube Data API & Progressive Streaming Proxy
