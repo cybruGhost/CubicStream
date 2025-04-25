@@ -1,67 +1,116 @@
 nav {
   display: flex;
+  gap: 0.5rem;
 
   a {
     text-decoration: none;
     color: inherit;
     display: flex;
     align-items: center;
-    opacity: 50%;
+    opacity: 0.7;
+    transition: 
+      opacity 0.2s ease,
+      transform 0.1s ease;
+    position: relative;
 
     p,
     i {
       pointer-events: none;
     }
 
-    &:hover,
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
     &.active {
       opacity: 1;
+      font-weight: 600;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: currentColor;
+        height: 2px;
+        border-radius: 1px;
+      }
     }
   }
 }
 
-@media(orientation:portrait) {
-
+@media (orientation: portrait) {
   nav {
     height: fit-content;
     justify-content: space-around;
     width: 100%;
-    padding: 2% 0;
+    padding: 1.2rem 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 
     a {
       height: 100%;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: center;
+      gap: 0.3rem;
+      padding: 0.5rem;
+      border-radius: var(--roundness);
+
+      &:active {
+        transform: scale(0.95);
+      }
 
       i {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       p {
         margin: 0;
         padding: 0;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+
+      &.active::after {
+        bottom: 0.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
       }
     }
   }
-
 }
 
-@media(orientation:landscape) {
-
+@media (orientation: landscape) {
   nav {
     flex-direction: column;
-    justify-content: space-around;
-    font-size: large;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    font-size: 1rem;
 
     a {
-      margin-bottom: 2dvh;
+      margin-bottom: 0;
+      padding: 0.5rem 1rem;
+      border-radius: var(--roundness);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
 
       i {
-        margin-right: 5%;
+        margin-right: 0.75rem;
+        font-size: 1.2rem;
+      }
+
+      &.active::after {
+        left: 1rem;
+        bottom: 0.5rem;
+        width: 60%;
       }
     }
-
   }
-
 }
