@@ -203,7 +203,7 @@
       width: 100%;
       height: var(--thumb-size);
       -webkit-appearance: none;
-      background: pink;
+      background: rgb(185, 181, 181);
       cursor: pointer;
       z-index: 2;
       position: relative;
@@ -218,7 +218,7 @@
         -webkit-appearance: none;
         width: var(--thumb-size);
         height: var(--thumb-size);
-        background: white;
+        background: rgb(10, 7, 7);
         border-radius: 50%;
         margin-top: calc((var(--track-height) - var(--thumb-size)) / 2);
         transition: all 0.2s ease;
