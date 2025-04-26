@@ -15,8 +15,9 @@
 
 ## 🛠️ Tech Stack
 
-- HTML, CSS, JavaScript
-- Node.js / Python / (insert your backend tech)
+- Reactjs
+- vite
+- html
 - YouTube Data API / other streaming APIs
 
 ---
