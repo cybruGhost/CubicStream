@@ -102,6 +102,122 @@ dist/assets/hls-CySapf1N.js                      399.85 kB │ gzip: 123.78 kB
 ✓ built in 9.51s
 ```
 
+Example for CONTRIBUTING.md
+
+# Contributing to CubicStream
+
+Thanks for considering contributing to **CubicStream**! We appreciate any help you can provide.
+
+## Features
+- **Queuing Features** 🚦
+- **Cubic Music collections** 🎷: create your own playlists disconnected from YouTube, share it with the world with a share link.
+- **YouTube Playlists** 🎶: View them, queue them to the player. You can also both subscribe and import it into your own collections.
+- **Theming** 🎨: Modern Autonomous themed UI based on stream thumbnail with High Contrast Mode for increased legibility.
+- **PWA** 📱: Install as an app on your device which also allows you to play YouTube links with it from your OS share menu.
+- **Radio** 📻: Fetches similar streams and creates a playlist for your stream, great for music listeners.
+- **Library** 📚: Discover feed, history, favorites, Channels, YouTube playlists, custom playlists (collections) & Subscription Feed!
+- **Download** ⬇️ : Download any audio stream using the button on the action menu.
+- **Lyrics** 🎼 : Immersive Synced Lyrics using the button on the action menu.
+- **For You** 🎻 : Get audio tailored specifically for you based on your Favorites, generated on device without any violation of privacy.
+- **Parental Controls** 👨‍👦 : Disable parts of the application according to your needs.
+
+## Development 🔧
+To contribute to the **CubicStream** project, follow these steps:
+
+### 1. Fork the Repository
+- Click the **Fork** button on the top right of this page to create a copy of the repository under your GitHub account.
+
+### 2. Clone Your Fork
+- Clone your forked repository to your local machine:
+  ```bash
+  git clone https://github.com/your-username/CubicStream.git
+  cd CubicStream
+
+3. Create a New Branch
+
+Before making changes, create a new branch to work on:
+
+git checkout -b your-branch-name
+
+Replace your-branch-name with something descriptive for the change you're working on.
+
+
+4. Make Your Changes
+
+Now, make your desired changes to the project.
+
+
+5. Commit Your Changes
+
+After making the changes, commit them:
+
+git add .
+git commit -m "Brief description of your changes"
+
+
+6. Push Your Branch
+
+Push your changes to your forked repository:
+
+git push origin your-branch-name
+
+
+7. Create a Pull Request
+
+After pushing your changes, go to your GitHub repository, and click on Compare & Pull Request.
+
+Add a title and description for your pull request (be sure to describe the changes you made).
+
+Select the main branch of the original repository as the base branch and your branch as the compare branch.
+
+Click Create Pull Request.
+
+
+
+---
+
+8. Wait for Review
+
+The repository maintainers will review your pull request. They may suggest changes, and once everything is good, your changes will be merged into the main project.
+
+
+
+---
+
+General Guidelines
+
+Please follow the project's code style.
+
+If your changes are substantial, try to break them into smaller pull requests.
+
+Respect the privacy of users and avoid adding any personal information into the code or repository.
+
+If you’re adding a feature, please include tests where possible.
+
+
+Thank you for contributing to CubicStream!
+
+### Example for **README.md**
+
+Add a section to your **README.md** that encourages contributions:
+
+```markdown
+## How to Contribute
+
+We welcome contributions to **CubicStream**! If you'd like to help improve the project, please follow the instructions in our [contributing guidelines](CONTRIBUTING.md).
+
+### Steps to Contribute:
+1. Fork the repository
+2. Clone your forked repo
+3. Create a new branch
+4. Make your changes
+5. Push your branch to your fork
+6. Open a pull request
+
+Looking forward to your contributions!
+
+
+
 ## Tools
 - [Uma](https://github.com/n-ce/Uma) - Instances Manager
 - [Piped](https://github.com/teampiped/piped) - YouTube Data API & Adaptive Streaming Proxy
