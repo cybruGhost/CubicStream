@@ -15,7 +15,7 @@
 
 ## 🛠️ Tech Stack
 
-- Reactjs
+- React/typescript
 - vite
 - html
 - YouTube Data API / other streaming APIs
