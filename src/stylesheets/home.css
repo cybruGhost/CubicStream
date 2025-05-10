@@ -1,350 +1,221 @@
 #home {
-  --magic-purple: #9d4edd;
-  --neon-pink: #ff2d75;
-  --electric-blue: #00f0ff;
-  --starlight: #f9c74f;
-  --cosmic-black: #0f0c29;
-  --galaxy-purple: #302b63;
+  --spotify-green: #1DB954;
+  --spotify-dark: #191414;
+  --spotify-light: #FFFFFF;
+  --spotify-gray: #535353;
+  --spotify-light-gray: #B3B3B3;
+  --spotify-card: #181818;
   
   width: 100%;
-  padding: 2rem;
-  background: linear-gradient(135deg, var(--cosmic-black), var(--galaxy-purple));
-  border-radius: 24px;
-  box-shadow: 
-    0 0 30px rgba(157, 78, 221, 0.4),
-    0 0 60px rgba(0, 240, 255, 0.2);
+  padding: 1.5rem;
+  background: var(--spotify-dark);
+  border-radius: 8px;
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  font-family: 'Circular', sans-serif;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: 
-      radial-gradient(circle at 30% 30%, rgba(255,45,117,0.15) 0%, transparent 50%),
-      radial-gradient(circle at 70% 70%, rgba(0,240,255,0.15) 0%, transparent 50%);
-    animation: cosmicFloat 20s infinite linear;
-    z-index: -1;
-  }
-
-  /* Album Art - Floating Magic */
+  /* Album Art - Spotify Card Style */
   #upperLayer {
-    position: relative;
-    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     img {
       width: 80%;
       max-width: 300px;
-      border-radius: 16px;
-      box-shadow: 
-        0 0 20px rgba(157, 78, 221, 0.6),
-        0 10px 30px rgba(0, 0, 0, 0.4);
-      transform-style: preserve-3d;
-      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      filter: drop-shadow(0 0 10px rgba(157, 78, 221, 0.4));
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
       
       &:hover {
-        transform: 
-          rotateY(10deg) 
-          rotateX(5deg) 
-          scale(1.05);
-        box-shadow: 
-          0 0 30px rgba(157, 78, 221, 0.8),
-          0 15px 40px rgba(0, 0, 0, 0.5);
+        transform: scale(1.02);
       }
-    }
-
-    /* Floating Particles */
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        radial-gradient(circle at 20% 30%, var(--starlight) 0%, transparent 2%),
-        radial-gradient(circle at 80% 70%, var(--electric-blue) 0%, transparent 2%),
-        radial-gradient(circle at 50% 20%, var(--neon-pink) 0%, transparent 2%);
-      background-size: 300% 300%;
-      animation: particleFlow 15s infinite alternate;
-      opacity: 0.3;
-      z-index: -1;
     }
   }
 
-  /* Track Info - Glowing Text */
+  /* Track Info - Spotify Typography */
   #meta {
     text-align: center;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
     
     #title {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #fff, var(--magic-purple), var(--neon-pink));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
+      color: var(--spotify-light);
       margin-bottom: 0.5rem;
-      letter-spacing: 0.5px;
-      animation: textGlow 3s infinite alternate;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     #artist {
-      font-size: 1.2rem;
-      color: var(--electric-blue);
-      text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+      font-size: 1rem;
+      color: var(--spotify-light-gray);
       margin-bottom: 1.5rem;
     }
   }
 
-  /* Control Buttons - Magical Orbs */
+  /* Control Buttons - Spotify Style */
   #upperButtonLayer {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
     
     button {
-      width: 3rem;
-      height: 3rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
+      background: transparent;
+      border: none;
+      color: var(--spotify-light-gray);
       font-size: 1.2rem;
       cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
       
       &:hover {
-        transform: scale(1.15);
-        background: rgba(255, 255, 255, 0.2);
-        
-        &::before {
-          opacity: 1;
-        }
-      }
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        color: var(--spotify-light);
+        transform: scale(1.1);
       }
     }
 
-    /* Favorite Button - Pulsing Heart */
+    /* Favorite Button */
     #favButton {
       &+label {
-        color: rgba(255,255,255,0.7);
-        transition: all 0.3s ease;
+        color: var(--spotify-light-gray);
+        transition: all 0.2s ease;
         
         &:hover {
-          color: var(--neon-pink);
-          transform: scale(1.2);
+          color: var(--spotify-light);
+          transform: scale(1.1);
         }
       }
       
       &:checked+label {
-        color: var(--neon-pink);
-        animation: 
-          heartBeat 0.6s ease,
-          pulseGlow 2s infinite;
+        color: var(--spotify-green);
       }
     }
 
-    /* Loop Button - Orbital Animation */
+    /* Loop Button */
     #loopButton {
       &.on {
-        color: var(--electric-blue);
-        animation: orbitalGlow 3s infinite;
-        
-        &::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 120%;
-          height: 120%;
-          border: 1px solid var(--electric-blue);
-          border-radius: 50%;
-          transform: translate(-50%, -50%) scale(0.8);
-          opacity: 0;
-          animation: orbitalRing 3s infinite;
-        }
+        color: var(--spotify-green);
       }
     }
   }
 
-  /* Progress Bar - Cosmic Energy */
+  /* Progress Bar - Spotify Style */
   #trackline {
     width: 100%;
-    margin-top: 2rem;
-    position: relative;
+    margin: 1.5rem 0;
     
     input[type="range"] {
-      --thumb-size: 16px;
-      --track-height: 6px;
+      --thumb-size: 12px;
+      --track-height: 4px;
       width: 100%;
       height: var(--thumb-size);
       -webkit-appearance: none;
-      background: rgb(185, 181, 181);
+      background: transparent;
       cursor: pointer;
-      z-index: 2;
-      position: relative;
       
       &::-webkit-slider-runnable-track {
         height: var(--track-height);
-        background: rgba(10, 6, 6, 0.1);
-        border-radius: 10px;
+        background: var(--spotify-gray);
+        border-radius: 2px;
       }
       
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
         width: var(--thumb-size);
         height: var(--thumb-size);
-        background: rgb(10, 7, 7);
+        background: var(--spotify-light);
         border-radius: 50%;
         margin-top: calc((var(--track-height) - var(--thumb-size)) / 2);
         transition: all 0.2s ease;
-        box-shadow: 
-          0 0 0 3px rgba(157, 78, 221, 0.5),
-          0 0 10px rgba(255, 255, 255, 0.8);
+        opacity: 0;
       }
       
       &:hover::-webkit-slider-thumb {
-        transform: scale(1.2);
-        background: var(--magic-purple);
-        box-shadow: 
-          0 0 0 5px rgba(157, 78, 221, 0.7),
-          0 0 20px rgba(157, 78, 221, 0.8);
+        opacity: 1;
       }
-    }
-    
-    /* Energy Wave Effect */
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: var(--progress, 30%);
-      height: 2px;
-      background: linear-gradient(90deg, var(--magic-purple), var(--electric-blue));
-      border-radius: 2px;
-      filter: blur(1px);
-      animation: energyPulse 2s infinite;
+      
+      &:hover::-webkit-slider-runnable-track {
+        background: var(--spotify-green);
+      }
     }
     
     div {
       display: flex;
       justify-content: space-between;
       margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--electric-blue);
-      text-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
+      font-size: 0.75rem;
+      color: var(--spotify-light-gray);
     }
   }
 
-  /* Main Controls - Floating Crystals */
+  /* Main Controls - Spotify Play Button */
   #playerControls {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
     
     button {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: rgb(7, 7, 7);
-      font-size: 1.4rem;
+      background: transparent;
+      border: none;
+      color: var(--spotify-light);
+      font-size: 1.2rem;
       cursor: pointer;
-      transition: all 0.3s ease;
-      border-radius: 50%;
-      padding: 1rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease;
       
       &:hover {
         transform: scale(1.1);
-        background: rgba(255, 255, 255, 0.2);
-        
-        &::before {
-          opacity: 1;
-        }
       }
       
-      &::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      /* Play Button - Pulsing Crystal */
+      /* Play Button */
       &#playButton {
-        width: 5rem;
-        height: 5rem;
-        font-size: 2rem;
-        background: linear-gradient(135deg, var(--magic-purple), var(--neon-pink));
-        box-shadow: 
-          0 0 20px rgba(157, 78, 221, 0.6),
-          0 0 40px rgba(255, 45, 117, 0.4);
-        animation: crystalPulse 3s infinite;
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.5rem;
+        background: var(--spotify-green);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(29, 185, 84, 0.3);
         
         &:hover {
-          transform: scale(1.1);
-          box-shadow: 
-            0 0 30px rgba(157, 78, 221, 0.8),
-            0 0 50px rgba(255, 45, 117, 0.6);
+          transform: scale(1.05);
+          background: #1ED760;
         }
       }
     }
   }
 
-  /* Volume Control - Ethereal Slider */
+  /* Volume Control - Spotify Style */
   #playerSelectors {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    margin: 1.5rem 0;
     
     #volumeContainer {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
       width: 60%;
       
       i {
-        color: var(--electric-blue);
-        font-size: 1.4rem;
-        text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+        color: var(--spotify-light-gray);
+        font-size: 1rem;
       }
       
       input[type="range"] {
-        --thumb-size: 14px;
+        --thumb-size: 12px;
         --track-height: 4px;
         flex: 1;
         height: var(--thumb-size);
@@ -354,42 +225,43 @@
         
         &::-webkit-slider-runnable-track {
           height: var(--track-height);
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 10px;
+          background: var(--spotify-gray);
+          border-radius: 2px;
         }
         
         &::-webkit-slider-thumb {
           -webkit-appearance: none;
           width: var(--thumb-size);
           height: var(--thumb-size);
-          background: var(--electric-blue);
+          background: var(--spotify-light);
           border-radius: 50%;
           margin-top: calc((var(--track-height) - var(--thumb-size)) / 2);
           transition: all 0.2s ease;
-          box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+          opacity: 0;
         }
         
         &:hover::-webkit-slider-thumb {
-          transform: scale(1.2);
-          box-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+          opacity: 1;
+        }
+        
+        &:hover::-webkit-slider-runnable-track {
+          background: var(--spotify-green);
         }
       }
     }
   }
 
-  /* Responsive Magic */
-  @media (orientation: portrait) {
-    border-radius: 24px 24px 0 0;
-    padding: 1.5rem;
-    margin-top: auto;
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    padding: 1rem;
+    border-radius: 0;
     
     #upperLayer img {
       width: 70vw;
-      max-width: none;
     }
     
     #playerControls {
-      gap: 1.5rem;
+      gap: 1rem;
     }
   }
 
@@ -417,67 +289,5 @@
         }
       }
     }
-  }
-}
-
-/* Enchanted Animations */
-@keyframes cosmicFloat {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(-5%, 5%) rotate(5deg); }
-  50% { transform: translate(5%, -5%) rotate(-5deg); }
-  75% { transform: translate(-5%, 0) rotate(0deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-@keyframes particleFlow {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
-}
-
-@keyframes textGlow {
-  0% { text-shadow: 0 0 10px rgba(157, 78, 221, 0.3); }
-  50% { text-shadow: 0 0 20px rgba(157, 78, 221, 0.6); }
-  100% { text-shadow: 0 0 10px rgba(157, 78, 221, 0.3); }
-}
-
-@keyframes heartBeat {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.3); }
-  50% { transform: scale(1); }
-  75% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { text-shadow: 0 0 5px rgba(255, 45, 117, 0.5); }
-  50% { text-shadow: 0 0 20px rgba(255, 45, 117, 0.8); }
-}
-
-@keyframes orbitalGlow {
-  0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.5); }
-  50% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.8); }
-}
-
-@keyframes orbitalRing {
-  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-  50% { opacity: 0.7; }
-  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
-}
-
-@keyframes energyPulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
-}
-
-@keyframes crystalPulse {
-  0%, 100% { 
-    box-shadow: 
-      0 0 20px rgba(157, 78, 221, 0.6),
-      0 0 40px rgba(255, 45, 117, 0.4);
-  }
-  50% { 
-    box-shadow: 
-      0 0 30px rgba(157, 78, 221, 0.8),
-      0 0 60px rgba(255, 45, 117, 0.6);
   }
 }
