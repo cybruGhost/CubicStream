@@ -110,6 +110,136 @@
     .back-button:hover {
       background-color: #344488;
     }
+    /* Button Container */
+#queuetools {
+  display: inline-flex;
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+  gap: 2px; /* Space between buttons */
+}
+
+/* Base Button Styles */
+#queuetools button {
+  --btn-size: 40px;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Tooltip Container (Below Button) */
+#queuetools button::before {
+  content: attr(data-translation-aria-label);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+/* Tooltip Arrow (Pointing Up) */
+#queuetools button::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 11;
+}
+
+/* Show Tooltip on Hover */
+#queuetools button:hover::before,
+#queuetools button:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(12px);
+}
+
+/* Mobile-Specific Styles */
+@media (max-width: 768px) {
+  #queuetools {
+    padding: 4px;
+    border-radius: 12px;
+    gap: 1px;
+  }
+  
+  #queuetools button {
+    --btn-size: 44px; /* Larger touch targets */
+  }
+  
+  /* More prominent tooltips for mobile */
+  #queuetools button::before {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    white-space: pre-wrap;
+    width: max-content;
+    max-width: 120px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.95);
+    transform: translateX(-50%) translateY(10px);
+  }
+  
+  #queuetools button:hover::before {
+    transform: translateX(-50%) translateY(14px);
+  }
+  
+  /* Touch feedback */
+  #queuetools button:active {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(0.95);
+  }
+  
+  /* Persistent tooltips for touch devices */
+  @media (hover: none) {
+    #queuetools button:focus::before,
+    #queuetools button:focus::after,
+    #queuetools button:active::before,
+    #queuetools button:active::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(14px);
+    }
+  }
+}
+
+/* Dynamic Audio Effects */
+#queuetools button:hover {
+  color: var(--audio-accent-color, #1db954);
+}
+
+#queuetools button:hover i {
+  transform: scale(1.15);
+}
+
+#queuetools button i {
+  transition: transform 0.2s ease;
+  font-size: 1.2rem;
+}
+    
   </style>
 </head>
 
@@ -313,6 +443,8 @@
       </div>
 
       <div id="superCollectionSelector">
+        <input type="radio" id="r.for_you" name="superCollectionChips" value="for_you">
+        <label data-translation="library_for_you" for="r.for_you">For You</label>
         <input type="radio" id="r.featured" name="superCollectionChips" value="featured" checked>
         <label data-translation="library_featured" for="r.featured">Featured</label>
         <input type="radio" id="r.collections" name="superCollectionChips" value="collections">
@@ -329,8 +461,7 @@
         <input type="radio" id="r.feed" name="superCollectionChips" value="feed">
         <label data-translation="library_feed" for="r.feed">Subscription Feed</label>
 
-        <input type="radio" id="r.for_you" name="superCollectionChips" value="for_you">
-        <label data-translation="library_for_you" for="r.for_you">For You</label>
+
 
       </div>
 
@@ -468,6 +599,19 @@ function formatTime(seconds) {
 audioElement.addEventListener('loadedmetadata', () => {
   document.getElementById('fullDuration').textContent = formatTime(audioElement.duration);
 });
+// Optional: Toggle visibility based on player state
+function toggleMiniPlayer(show) {
+  const miniPlayer = document.getElementById('miniPlayer');
+  if (window.innerWidth >= 768) { // Desktop only
+    miniPlayer.style.display = show ? 'flex' : 'none';
+  }
+}
+
+// Example usage when full player opens
+toggleMiniPlayer(false);
+
+// When full player closes
+toggleMiniPlayer(true);
   </script>
 
   <script src="/src/main.ts" type="module"></script>

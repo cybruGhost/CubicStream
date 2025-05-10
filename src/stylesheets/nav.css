@@ -1,116 +1,196 @@
+/* Modern Navigation System */
 nav {
+  --nav-bg: rgba(20, 20, 20, 0.9);
+  --nav-accent: #1db954;
+  --nav-text: rgba(255, 255, 255, 0.9);
+  --nav-text-active: #ffffff;
+  --nav-icon-size: 1.5rem;
+  --nav-gap: 0.75rem;
+  --roundness: 12px;
+  
   display: flex;
-  gap: 0.5rem;
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    align-items: center;
-    opacity: 0.7;
-    transition: 
-      opacity 0.2s ease,
-      transform 0.1s ease;
-    position: relative;
-
-    p,
-    i {
-      pointer-events: none;
-    }
-
-    &:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    &.active {
-      opacity: 1;
-      font-weight: 600;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        background-color: currentColor;
-        height: 2px;
-        border-radius: 1px;
-      }
-    }
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1000;
+  padding: 0.5rem;
+  justify-content: space-around;
+  gap: var(--nav-gap);
 }
 
-@media (orientation: portrait) {
-  nav {
-    height: fit-content;
-    justify-content: space-around;
-    width: 100%;
-    padding: 1.2rem 0;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-
-    a {
-      height: 100%;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.3rem;
-      padding: 0.5rem;
-      border-radius: var(--roundness);
-
-      &:active {
-        transform: scale(0.95);
-      }
-
-      i {
-        font-size: 1.4rem;
-      }
-
-      p {
-        margin: 0;
-        padding: 0;
-        font-size: 0.75rem;
-        font-weight: 500;
-      }
-
-      &.active::after {
-        bottom: 0.2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40%;
-      }
-    }
-  }
+nav a {
+  text-decoration: none;
+  color: var(--nav-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: var(--roundness);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  opacity: 0.8;
 }
 
-@media (orientation: landscape) {
+nav a i {
+  font-size: var(--nav-icon-size);
+  margin-bottom: 0.25rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+nav a p {
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Active State */
+nav a.active {
+  opacity: 1;
+  color: var(--nav-text-active);
+  transform: translateY(-4px);
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 3px;
+  background: var(--nav-accent);
+  border-radius: 2px;
+}
+
+/* Hover/Active Interactions */
+nav a:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+nav a:active {
+  transform: scale(0.95);
+}
+
+/* Desktop/Landscape Mode */
+@media (min-width: 768px), (orientation: landscape) {
   nav {
+    position: sticky;
+    top: 0;
+    bottom: auto;
     flex-direction: column;
+    width: auto;
+    height: 100vh;
+    padding: 1.5rem 0.75rem;
+    border-top: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
     justify-content: flex-start;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    font-size: 1rem;
+  }
 
-    a {
-      margin-bottom: 0;
-      padding: 0.5rem 1rem;
-      border-radius: var(--roundness);
+  nav a {
+    flex-direction: row;
+    padding: 0.75rem 1rem;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+  }
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.05);
-      }
+  nav a i {
+    margin-bottom: 0;
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+  }
 
-      &:active {
-        transform: scale(0.98);
-      }
+  nav a p {
+    font-size: 0.85rem;
+  }
 
-      i {
-        margin-right: 0.75rem;
-        font-size: 1.2rem;
-      }
+  nav a.active {
+    transform: translateX(4px);
+  }
 
-      &.active::after {
-        left: 1rem;
-        bottom: 0.5rem;
-        width: 60%;
-      }
-    }
+  nav a.active::after {
+    left: 0;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 50%;
+  }
+}
+
+/* Animation Enhancements */
+@keyframes navItemFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 0.8; transform: translateY(0); }
+}
+
+nav a {
+  animation: navItemFadeIn 0.4s ease-out forwards;
+}
+
+/* Delay animations for each nav item */
+nav a:nth-child(1) { animation-delay: 0.1s; }
+nav a:nth-child(2) { animation-delay: 0.2s; }
+nav a:nth-child(3) { animation-delay: 0.3s; }
+nav a:nth-child(4) { animation-delay: 0.4s; }
+nav a:nth-child(5) { animation-delay: 0.5s; }
+/* Mobile layout adjustments */
+@media (max-width: 767px) {
+  /* Hide mini player when full player is active */
+  body.player-expanded #miniPlayer {
+    display: none;
+  }
+
+  /* Full player container */
+  #home {
+    padding-bottom: 80px; /* Space for navigation */
+  }
+
+  /* Mini player default state */
+  #miniPlayer {
+    position: fixed;
+    bottom: 70px; /* Above navigation */
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+    z-index: 998;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Navigation bar */
+  nav {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    z-index: 999;
+  }
+}
+
+/* Desktop layout - keep original behavior */
+
+/* Show only on desktop */
+@media (min-width: 768px) {
+  #miniPlayer {
+    display: flex; /* Or your original desktop display value */
+    /* Keep all your existing desktop styles */
+    position: relative;
+    width: auto;
+    margin: 0;
+    /* Add any other original desktop styles here */
   }
 }

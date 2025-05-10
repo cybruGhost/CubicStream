@@ -1,127 +1,203 @@
 #superInputContainer {
-  --input-focus-scale: 1.02;
-  --input-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --glow-intensity: 0.4;
+  --input-bg: rgba(20, 20, 20, 0.8);
+  --input-focus-bg: rgba(30, 30, 30, 0.95);
+  --accent-color: #1db954;
+  --text-color: rgba(255, 255, 255, 0.9);
+  --transition-config: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   
-  height: auto;
-  width: 92%;
-  padding: 2.4vmin 4vmin;
   position: sticky;
-  z-index: 3;
-  top: 4vmin;
-  background-color: var(--onBg);
-  backdrop-filter: blur(2vmin) saturate(180%);
-  -webkit-backdrop-filter: blur(2vmin) saturate(180%);
-  border-radius: var(--roundness);
-  border: var(--border);
-  box-shadow: 
-    var(--shadow),
-    0 0 0 0 rgba(255, 255, 255, 0.1);
+  top: 20px;
+  z-index: 100;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  background: var(--input-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
   display: flex;
-  transition: var(--input-transition);
-  will-change: transform, backdrop-filter, box-shadow;
+  gap: 12px;
+  align-items: center;
+  transition: var(--transition-config);
+  will-change: transform, box-shadow, background;
+}
 
-  &:focus-within {
-    backdrop-filter: none;
-    background-color: var(--bg);
-    transform: scale(var(--input-focus-scale));
-    box-shadow: 
-      var(--shadow),
-      0 0 15px 5px rgba(255, 255, 255, 0.15);
-  }
+#superInputContainer:hover {
+  background: rgba(25, 25, 25, 0.85);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+#superInputContainer:focus-within {
+  transform: translateY(-2px);
+  background: var(--input-focus-bg);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 0 0 1px var(--accent-color),
+    0 0 20px calc(var(--glow-intensity) * 10px) rgba(29, 185, 84, 0.3);
+  animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { --glow-intensity: 0.3; }
+  100% { --glow-intensity: 0.5; }
 }
 
 #superInput {
+  flex: 1;
   border: none;
-  height: 100%;
-  width: 100%;
-  background: none;
-  color: inherit;
-  font-size: medium;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.03em;
-  transition: var(--input-transition);
-  
-  &:focus {
-    outline: none;
-    &::placeholder {
-      opacity: 0.5;
-      transform: translateX(5px);
-    }
-  }
+  letter-spacing: 0.02em;
+  padding: 8px 0;
+  transition: var(--transition-config);
+}
+
+#superInput:focus {
+  outline: none;
 }
 
 #superInput::placeholder {
-  color: inherit;
-  opacity: 75%;
+  color: rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
+}
+
+#superInput:focus::placeholder {
+  opacity: 0.3;
+  transform: translateX(8px);
 }
 
 #searchFilters {
-  font-size: medium;
-  max-width: 9ch;
-  padding: 0;
-  border: none;
-  color: inherit;
-  text-align: right;
   appearance: none;
-  background: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-  
-  &:focus {
-    outline: none;
-    transform: scale(1.05);
-  }
+  transition: var(--transition-config);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+#searchFilters:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#searchFilters:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-color);
 }
 
 #suggestions {
-  max-height: 25vmax;
-  overflow-y: scroll;
   position: absolute;
-  width: 80vmin;
-  z-index: 1;
-  margin-top: calc(1.5rem + 8.8vmin);
-  background-color: var(--bg);
-  list-style-type: none;
-  padding: 0;
-  border-radius: 0 0 var(--roundness) var(--roundness);
-  border: var(--border);
-  box-shadow: var(--shadow);
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: rgba(30, 30, 30, 0.98);
+  backdrop-filter: blur(24px);
+  border-radius: 12px;
+  padding: 12px 0;
+  margin: 0;
+  list-style: none;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  max-height: 60vh;
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 99;
   display: none;
-  user-select: none;
+}
 
-  li {
-    background-color: var(--onBg);
-    font-weight: bold;
-    padding: 1vmin 3vmin;
-    margin-top: 0.4vmin;
+#suggestions.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    &:hover,
-    &:focus,
-    &.hover {
-      background-color: var(--text);
-      color: var(--bg);
-    }
-  }
+#suggestions li {
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#suggestions li:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#suggestions li::before {
+  content: "→";
+  opacity: 0;
+  color: var(--accent-color);
+  transition: all 0.2s ease;
+}
+
+#suggestions li:hover::before {
+  opacity: 1;
+  transform: translateX(-4px);
 }
 
 #searchlist {
-  margin-top: 8%;
-  width: 92%;
-  animation: fadeIn 0.5s ease-out forwards;
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+@keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Micro-interactions */
+@media (hover: hover) {
+  #suggestions li {
+    transition: transform 0.3s ease;
+  }
+  #suggestions li:hover {
+    transform: translateX(8px);
+  }
+}
+
+/* Loading indicator */
+.search-loading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  background-size: 200% 100%;
+  animation: loading-bar 1.5s infinite linear;
+}
+
+@keyframes loading-bar {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
 }
