@@ -39,6 +39,7 @@
     text-align: center;
     margin: 1.5rem 0;
     
+    
     #title {
       font-size: 1.5rem;
       font-weight: 700;
@@ -107,54 +108,22 @@
     }
   }
 
-  /* Progress Bar - Spotify Style */
-  #trackline {
+#trackline {
     width: 100%;
-    margin: 1.5rem 0;
-    
-    input[type="range"] {
-      --thumb-size: 12px;
-      --track-height: 4px;
+    input {
       width: 100%;
-      height: var(--thumb-size);
-      -webkit-appearance: none;
-      background: transparent;
-      cursor: pointer;
-      
-      &::-webkit-slider-runnable-track {
-        height: var(--track-height);
-        background: var(--spotify-gray);
-        border-radius: 2px;
-      }
-      
-      &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: var(--thumb-size);
-        height: var(--thumb-size);
-        background: var(--spotify-light);
-        border-radius: 50%;
-        margin-top: calc((var(--track-height) - var(--thumb-size)) / 2);
-        transition: all 0.2s ease;
-        opacity: 0;
-      }
-      
-      &:hover::-webkit-slider-thumb {
-        opacity: 1;
-      }
-      
-      &:hover::-webkit-slider-runnable-track {
-        background: var(--spotify-green);
-      }
     }
-    
+
     div {
       display: flex;
       justify-content: space-between;
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
-      color: var(--spotify-light-gray);
     }
+
+
   }
+
+
+
 
   /* Main Controls - Spotify Play Button */
   #playerControls {

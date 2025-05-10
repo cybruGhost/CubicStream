@@ -1,10 +1,10 @@
-import { actionsMenu, loadingScreen, openInYtBtn } from "../lib/dom";
-import { $, i18n, getDownloadLink, hostResolver } from "../lib/utils";
-import fetchList from "../modules/fetchList";
-import { appendToQueuelist } from "../scripts/queue";
-import { getSaved, store } from "../lib/store";
+import { actionsMenu, loadingScreen, openInYtBtn } from "../lib/dom.ts";
+import { $, i18n, getDownloadLink, hostResolver } from "../lib/utils.ts";
+import fetchList from "../modules/fetchList.ts";
+import { appendToQueuelist } from "../scripts/queue.ts";
+import { getSaved, store } from "../lib/store.ts";
 import './ActionsMenu.css';
-import CollectionSelector from "./CollectionSelector";
+import CollectionSelector from "./CollectionSelector.tsx";
 import { createSignal, lazy, onMount, Show } from "solid-js";
 import { render } from "solid-js/web";
 
@@ -22,7 +22,7 @@ function close() {
 
 actionsMenu.onclick = close;
 
-const WatchVideo = lazy(() => import('./WatchVideo'));
+const WatchVideo = lazy(() => import('./WatchVideo.tsx'));
 const Lyrics = lazy(() => import('./Lyrics.tsx'));
 
 export default function() {

@@ -1,3 +1,4 @@
+/* Track info with neon text effect 
 #miniPlayer {
   --spotify-green: #1DB954;
   --neon-pink: #FF2D75;
@@ -18,7 +19,7 @@
   overflow: hidden;
   transition: all 0.3s ease;
 
-  /* Glowing progress bar */
+   Glowing progress bar 
   &::before {
     content: '';
     position: absolute;
@@ -31,7 +32,7 @@
     animation: progress-glow 2s infinite alternate;
   }
 
-  /* Album art with pulse animation */
+  Album art with pulse animation 
   img {
     width: 50px;
     height: 50px;
@@ -48,7 +49,7 @@
     box-shadow: 0 0 25px rgba(29, 185, 84, 0.8);
   }
 
-  /* Track info with neon text effect */
+   Track info with neon text effect 
   #mp {
     display: flex;
     align-items: center;
@@ -77,8 +78,7 @@
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
       }
     }
-
-    /* Play/pause button with flash effect */
+Play/pause button with flash effect 
     button {
       color: white;
       background: rgba(255, 255, 255, 0.1);
@@ -124,7 +124,7 @@
     }
   }
 
-  /* Equalizer animation when playing */
+ Equalizer animation when playing 
   &.playing {
     &::before {
       background: linear-gradient(90deg, var(--spotify-green), var(--electric-blue));
@@ -149,7 +149,7 @@
     }
   }
 
-  /* Portrait mode adjustments */
+   Portrait mode adjustments 
   @media (orientation: portrait) {
     height: 60px;
     margin: 10px 10px 0;
@@ -178,7 +178,7 @@
     }
   }
 
-  /* Landscape mode adjustments */
+  Landscape mode adjustments 
   @media (orientation: landscape) {
     flex-direction: column;
     padding: 15px;
@@ -207,7 +207,7 @@
   }
 }
 
-/* Animations */
+Animations 
 @keyframes album-pulse {
   0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(29, 185, 84, 0.5); }
   50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(29, 185, 84, 0.8); }
@@ -230,3 +230,4 @@
   50% { height: 4px; }
   75% { height: 6px; }
 }
+  */
