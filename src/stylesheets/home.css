@@ -8,7 +8,7 @@
   
   width: 100%;
   padding: 1.5rem;
-  background: var(--spotify-dark);
+  background: var(--onBg);
   border-radius: 8px;
   position: relative;
   overflow: hidden;
