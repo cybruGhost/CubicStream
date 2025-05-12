@@ -1,63 +1,61 @@
-.listItem {
-  width: 48%;
-  height: auto;
-  background-color: var(--onBg);
-  padding: 1dvmin;
-  margin: 2% 1%;
-  border: var(--border);
-  border-radius: calc(var(--roundness) + 0.75vmin);
-  transition: all 0.3s ease-out;
-  display: inline-block;
 
-  @media(orientation:landscape) {
-    width: 23%;
+.listItem {
+  width: 90%;
+  
+
+  @media (min-width: 1200px) {
+    width: 70%;
+    max-width: 900px;
   }
 
   * {
     pointer-events: none;
-    transition: all 0.4s;
+    transition: all 0.4s ease;
   }
 
   &:hover {
-    transform: scale(0.95);
+    transform: scale(1.01);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
   }
 
-  &.ravel {
-    * {
-      opacity: 0;
-    }
+  &.ravel * {
+    opacity: 0;
   }
-
 
   img {
-    height: auto;
     width: 100%;
-    border-radius: var(--roundness);
-    margin-bottom: 2vmin;
+    height: auto;
+    border-radius: var(--roundness, 1rem);
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   div {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
   }
 
   p.title {
-    font-size: medium;
-    height: 2rem;
-    line-height: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text, #fff);
+    line-height: 1.4;
     overflow: hidden;
   }
 
   p.uData {
-    font-size: x-small;
-    line-height: 0.8rem;
+    font-size: 1rem;
+    color: var(--textSecondary, #ccc);
+    line-height: 1.3;
     overflow: hidden;
   }
 
   p.stats {
-    font-size: small;
-    height: 1rem;
-    line-height: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent, #6c63ff);
+    line-height: 1.3;
   }
-
 }

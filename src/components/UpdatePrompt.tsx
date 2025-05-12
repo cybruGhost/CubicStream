@@ -9,14 +9,14 @@ export default function UpdatePrompt(handleUpdate: () => void) {
   let dialog!: HTMLDialogElement;
 
   onMount(async () => {
-    const data = await fetch('https://api.github.com/repos/n-ce/Cubic Music/commits/main').then(res => res.json());
+    const data = await fetch('https://api.github.com/repos/cybruGhost/cubic-stream/commits/main').then(res => res.json());
     const list = data.commit.message.split('-');
     const e = list.map((text: string) => (<li>{text}</li>))
     setList(e);
   });
 
   const handleFullList = () =>
-    fetch('https://raw.githubusercontent.com/wiki/n-ce/Cubic Music/Changelog.md')
+    fetch('https://raw.githubusercontent.com/cybruGhost/cubic-stream/Changelog.md')
       .then(res => res.text())
       .then(text => text.split('\n'))
       .then(e => setFullList(e));

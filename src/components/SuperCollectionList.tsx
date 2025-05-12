@@ -141,7 +141,7 @@ const loadFeed = (db: Library) =>
     'You have not subscribed to any channels';
 
 
-const loadFeaturedPls = () => fetch('https://raw.githubusercontent.com/wiki/n-ce/Cubic Music/ytm_pls.md')
+const loadFeaturedPls = () => fetch('https://raw.githubusercontent.com/wiki/n-ce/ytify/ytm_pls.md')
   .then(res => res.text())
   .then(text => text.split('\n'))
   .then(data => {
