@@ -16,7 +16,7 @@ export default function Lyrics() {
       `https://lrclib.net/api/get?track_name=${store.actionsMenu.title}&artist_name=${store.actionsMenu.author.slice(0, -8)}`,
       {
         headers: {
-          'Lrclib-Client': `Cubic Music ${Version.substring(0, 3)} (https://github.com/n-ce/Cubic Music)`
+          'Lrclib-Client': `Cubic-stream ${Version.substring(0, 3)} (https://github.com/cybruGhost/cubic-stream)`
         }
       })
       .then(res => res.json())
@@ -82,4 +82,3 @@ export default function Lyrics() {
     </dialog>
   );
 }
-

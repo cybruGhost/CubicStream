@@ -1,3 +1,4 @@
+import './watch.css';
 import { createSignal, For, onMount, Show } from "solid-js";
 import { generateImageUrl } from "../lib/imageUtils";
 import { getSaved, store } from "../lib/store";
@@ -12,6 +13,7 @@ export default function WatchVideo() {
     video: [] as string[][],
     captions: [] as Captions[]
   });
+
   let dialog!: HTMLDialogElement;
   let video!: HTMLVideoElement;
   const audio = new Audio();
@@ -35,12 +37,15 @@ export default function WatchVideo() {
 
     const data = await getStreamData(store.actionsMenu.id) as unknown as Piped & {
       captions: Captions[],
-      videoStreams: Record<'url' | 'type' | 'resolution', string>[]
+      videoStreams: Record<'url' | 'type' | 'resolution', string>[],
+      audioStreams: Record<'url' | 'mimeType' | 'bitrate', string>[]
     };
+
     const hasAv1 = data.videoStreams.find(v => v.type.includes('av01'))?.url;
     const hasVp9 = data.videoStreams.find(v => v.type.includes('vp9'))?.url;
     const hasOpus = data.audioStreams.find(a => a.mimeType.includes('opus'))?.url;
     const useOpus = hasOpus && await store.player.supportsOpus;
+
     const audioArray = handleXtags(data.audioStreams)
       .filter(a => a.mimeType.includes(useOpus ? 'opus' : 'mp4a'))
       .sort((a, b) => parseInt(a.bitrate) - parseInt(b.bitrate));
@@ -50,17 +55,16 @@ export default function WatchVideo() {
     audio.src = proxyHandler(audioArray[0].url);
     audio.currentTime = video.currentTime;
     loadingScreen.close();
+
     setData({
       video: data.videoStreams
         .filter(f => {
           const av1 = hasAv1 && supportsAv1 && f.type.includes('av01');
-          if (av1) return true;
           const vp9 = !hasAv1 && f.type.includes('vp9');
-          if (vp9) return true;
           const avc = !hasVp9 && f.type.includes('avc1');
-          if (avc) return true;
+          return av1 || vp9 || avc;
         })
-        .map(f => ([f.resolution, f.url])),
+        .map(f => [f.resolution, f.url]),
       captions: data.captions
     });
   });
@@ -68,26 +72,26 @@ export default function WatchVideo() {
   return (
     <dialog
       open
-      class='watcher'
       ref={dialog}
+      class="watcher"
+      style="background: #1e1e1e; color: white; border: none; padding: 1.5rem; border-radius: 10px; width: 80%; max-width: 960px;"
     >
       <video
         ref={video}
         controls
         poster={generateImageUrl(store.actionsMenu.id, 'mq')}
-        onplay={() => {
+        onPlay={() => {
           audio.play();
           audio.currentTime = video.currentTime;
         }}
-        onpause={() => {
+        onPause={() => {
           audio.pause();
           audio.currentTime = video.currentTime;
         }}
-        onwaiting={() => {
-          if (!audio.paused)
-            audio.pause();
+        onWaiting={() => {
+          if (!audio.paused) audio.pause();
         }}
-        ontimeupdate={() => {
+        onTimeUpdate={() => {
           const diff = audio.currentTime - video.currentTime;
           const vpr = video.playbackRate;
           const npr = vpr - diff;
@@ -95,65 +99,60 @@ export default function WatchVideo() {
           const rpr = Math.round(npr * 100) / 100;
           if (rpr !== audio.playbackRate)
             audio.playbackRate = rpr;
-
         }}
-        onloadstart={() => {
-          if (!audio.paused)
-            audio.pause();
+        onLoadStart={() => {
+          if (!audio.paused) audio.pause();
         }}
-        onplaying={() => {
-          if (audio.paused)
-            audio.play();
+        onPlaying={() => {
+          if (audio.paused) audio.play();
         }}
-        onseeked={() => {
+        onSeeked={() => {
           audio.currentTime = video.currentTime;
         }}
-        onratechange={() => {
+        onRateChange={() => {
           audio.playbackRate = video.playbackRate;
         }}
-        onerror={() => {
+        onError={() => {
           if (video.src.endsWith('&fallback')) return;
           const origin = new URL(video.src).origin;
-
           if (store.api.index < store.api.invidious.length) {
             const proxy = store.api.invidious[store.api.index];
             video.src = video.src.replace(origin, proxy);
             audio.src = audio.src.replace(origin, proxy);
-
             store.api.index++;
           }
         }}
-
       >
         <Show when={data().captions.length}>
-          <option>Captions</option>
           <For each={data().captions}>
             {(v) =>
               <track
                 src={store.api.invidious[0] + v.url}
                 srclang={v.label}
-              >
-              </track>
+              />
             }
           </For>
         </Show>
-
       </video>
 
       <div>
-
-        <button onclick={() => {
-          audio.pause();
-          video.pause();
-          dialog.close();
-          dialog.remove();
-          title.textContent = store.stream.title || 'Now Playing';
-        }}>Close</button>
+        <button
+          onClick={() => {
+            audio.pause();
+            video.pause();
+            dialog.close();
+            dialog.remove();
+            title.textContent = store.stream.title || 'Now Playing';
+          }}
+          style="margin-top: 1rem; background: crimson; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px;"
+        >
+          Close
+        </button>
 
         <Show when={data().video.length}>
           <Selector
-            id='videoCodecSelector'
-            label=''
+            id="videoCodecSelector"
+            label=""
             onChange={_ => {
               video.src = proxyHandler(_.target.value);
               video.currentTime = audio.currentTime;
@@ -177,10 +176,10 @@ export default function WatchVideo() {
         </Show>
 
         <br /><br />
-        <i>Because video streaming consumes a lot of energy, contributing to carbon emissions, please try to watch only what's necessary. When you do stream, select the lowest resolution / bitrate that meets your needs.</i>
+        <i>
+          Because video streaming consumes a lot of energy, contributing to carbon emissions, please try to watch only what's necessary. When you do stream, select the lowest resolution / bitrate that meets your needs.
+        </i>
       </div>
-    </dialog >
-
+    </dialog>
   );
 }
-
