@@ -289,7 +289,7 @@
   0% { background-position: -100% 0; }
   100% { background-position: 100% 0; }
 }
-<<<<<<< HEAD
+
 :root {
   --accent-color: #00ffc3;
   --bg-blur: blur(18px) saturate(160%);
@@ -600,5 +600,3 @@
     padding: 1.5rem;
   }
 }
-=======
->>>>>>> c52171ce9ffedb0f3270dc920abecaea7c476ffa

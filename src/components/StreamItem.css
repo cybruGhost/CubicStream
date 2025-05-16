@@ -1,5 +1,4 @@
 .streamItem {
-<<<<<<< HEAD
     width: 100%;
     background-color: var(--onBg, #121212);
     color: #fff;
@@ -122,8 +121,6 @@
 .streamItem:focus-visible {
     outline: 2px solid #4d90fe;
     outline-offset: 2px;
-}
-=======
 	width: 100%;
 	background-color: var(--onBg, #121212);
 	color: #fff;
@@ -237,4 +234,4 @@
 	background: rgba(255, 255, 255, 0.15);
 	transform: scale(1.1);
 }
->>>>>>> c52171ce9ffedb0f3270dc920abecaea7c476ffa
+
