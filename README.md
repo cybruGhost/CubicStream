@@ -225,14 +225,22 @@ Looking forward to your contributions!
 - [Piped](https://github.com/teampiped/piped) - YouTube Data API & Adaptive Streaming Proxy
 - [Invidious](https://invidious.io) - YouTube Data API & Progressive Streaming Proxy
 - [Hyperpipe](https://codeberg.org/Hyperpipe/hyperpipe-backend) - YT Music Artist Data API
+<<<<<<< HEAD
 - [Cobalt](https://github.com/wukko/cobalt) - YouTube Download API
+=======
+>>>>>>> c52171ce9ffedb0f3270dc920abecaea7c476ffa
 - [LRCLIB](https://lrclib.net) - Synced Lyrics Provider
 - [wsrv](https://wsrv.nl) - Image Proxy Provider
 - [Solid](https://github.com/solidjs/solid) - Delightful JSX Library
 - [HLS.js](https://github.com/video-dev/hls.js) - HLS Support Library
+<<<<<<< HEAD
 - [Netlify](https://www.netlify.com) - Hosting, PR Previews, User Feedback Forms, Edge Functions
 - [Vite](https://vitejs.dev) - Development Server, Code Bundling, Project Scaffolding.
 - [Autoprefixer](https://github.com/postcss/autoprefixer) - CSS Prefixes Solution.
 - [Remix Icons](https://github.com/Remix-Design/RemixIcon) - Efficient Icon Solution.
 - [Google Fonts](https://fonts.google.com) - NotoSans Font.
+=======
+- [Vite](https://vitejs.dev) - Development Server, Code Bundling, Project Scaffolding.
+- [Remix Icons](https://github.com/Remix-Design/RemixIcon) - Efficient Icon Solution.
+>>>>>>> c52171ce9ffedb0f3270dc920abecaea7c476ffa
 

@@ -1,4 +1,5 @@
 .streamItem {
+<<<<<<< HEAD
     width: 100%;
     background-color: var(--onBg, #121212);
     color: #fff;
@@ -122,3 +123,118 @@
     outline: 2px solid #4d90fe;
     outline-offset: 2px;
 }
+=======
+	width: 100%;
+	background-color: var(--onBg, #121212);
+	color: #fff;
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-radius: 1rem;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	position: relative;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.streamItem:hover {
+	transform: scale(0.98);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.streamItem.ravel * {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.streamItem.delete {
+	opacity: 0.4;
+	pointer-events: none;
+}
+
+.streamItem span {
+	position: relative;
+	margin-right: 1rem;
+	flex-shrink: 0;
+	width: 130px;
+	height: 73px;
+	overflow: hidden;
+	border-radius: 0.75rem;
+	background-color: #222;
+}
+
+.streamItem img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 0.75rem;
+	display: block;
+}
+
+.streamItem .duration {
+	position: absolute;
+	bottom: 0.5rem;
+	right: 0.5rem;
+	background: rgba(0, 0, 0, 0.65);
+	color: #fff;
+	padding: 0.2rem 0.6rem;
+	font-size: 0.75rem;
+	border-radius: 0.4rem;
+	pointer-events: none;
+}
+
+.streamItem .metadata {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-width: 0;
+}
+
+.streamItem .title {
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.4;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-bottom: 0.25rem;
+}
+
+.streamItem .avu {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 0.875rem;
+	color: #ccc;
+	gap: 0.5rem;
+}
+
+.streamItem .avu p {
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.streamItem i {
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	font-size: 1.4rem;
+	color: #bbb;
+	background: rgba(255, 255, 255, 0.05);
+	padding: 0.6rem;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.streamItem i:hover {
+	background: rgba(255, 255, 255, 0.15);
+	transform: scale(1.1);
+}
+>>>>>>> c52171ce9ffedb0f3270dc920abecaea7c476ffa
