@@ -11,7 +11,8 @@
   "dependencies": {
     "hls.js": "^1.5.20",
     "solid-js": "^1.9.4",
-    "sortablejs": "^1.15.6"
+    "sortablejs": "^1.15.6",
+    "workbox-window": "^7.3.0"
   },
   "devDependencies": {
     "@netlify/blobs": "^8.1.0",
