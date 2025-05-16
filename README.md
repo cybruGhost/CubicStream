@@ -230,7 +230,6 @@ Looking forward to your contributions!
 - [wsrv](https://wsrv.nl) - Image Proxy Provider
 - [Solid](https://github.com/solidjs/solid) - Delightful JSX Library
 - [HLS.js](https://github.com/video-dev/hls.js) - HLS Support Library
-- [Netlify](https://www.netlify.com) - Hosting, PR Previews, User Feedback Forms, Edge Functions
 - [Vite](https://vitejs.dev) - Development Server, Code Bundling, Project Scaffolding.
 - [Autoprefixer](https://github.com/postcss/autoprefixer) - CSS Prefixes Solution.
 - [Remix Icons](https://github.com/Remix-Design/RemixIcon) - Efficient Icon Solution.
