@@ -1,0 +1,96 @@
+/* Make the dialog cover the entire screen */
+.watcher {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: var(--bg);
+  color: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Video player - full width with aspect ratio preserved */
+.watcher video {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  background: var(--bg);
+  object-fit: contain;
+}
+
+/* Controls container below the video */
+.watcher div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+/* Close button styling */
+.watcher button {
+  align-self: flex-end;
+  background-color: #e63946;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.watcher button:hover {
+  background-color: #c92636;
+}
+
+/* Selector component */
+#videoCodecSelector {
+  width: 100%;
+  padding: 0.6rem;
+  background: #222;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Captions dropdown style */
+.watcher select,
+.watcher option {
+  background-color: #222;
+  color: #fff;
+}
+
+/* Caption info */
+.watcher i {
+  font-size: 0.85rem;
+  color: #aaa;
+  line-height: 1.4;
+  margin-top: 1rem;
+  display: block;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .watcher video {
+    max-height: 50vh;
+  }
+
+  .watcher div {
+    padding: 0.75rem;
+  }
+
+  .watcher button {
+    width: 100%;
+    text-align: center;
+  }
+}

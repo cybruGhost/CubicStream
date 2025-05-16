@@ -1,0 +1,52 @@
+#changelog {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+  animation: zoomout 0.5s ease-in-out forwards;
+  padding: 2vmin;
+}
+
+#changelog ul {
+  background-color: var(--onBg);
+  border-radius: calc(var(--roundness) + 0.75vmin);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  border: var(--border);
+  padding: 2vmin 3vmin;
+  overflow-y: auto;
+  max-height: 80dvh;
+  width: 100%;
+  max-width: 700px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+#changelog ul li {
+  margin-bottom: 0.75rem;
+}
+
+#changelog ul li:first-child {
+  list-style-type: none;
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#changelog ul hr {
+  border: 1px solid var(--text);
+  opacity: 0.3;
+  margin: 1.25rem 0;
+}
+
+#changelog span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
