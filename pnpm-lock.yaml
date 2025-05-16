@@ -17,6 +17,9 @@ importers:
       sortablejs:
         specifier: ^1.15.6
         version: 1.15.6
+      workbox-window:
+        specifier: ^7.3.0
+        version: 7.3.0
     devDependencies:
       '@netlify/blobs':
         specifier: ^8.1.0
