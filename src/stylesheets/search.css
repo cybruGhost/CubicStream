@@ -488,3 +488,114 @@
     transform: translateY(0);
   }
 }
+/* Mobile-first compact list view */
+@media (max-width: 768px) {
+  #searchlist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    margin-top: 12%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .streamItem {
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    min-height: 60px;
+  }
+
+  .streamItem span {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  .metadata {
+    padding: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .title {
+    font-size: 14px;
+    -webkit-line-clamp: 1;
+    margin-bottom: 4px;
+  }
+
+  .avu {
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .avu p {
+    max-width: 120px;
+  }
+
+  .duration {
+    bottom: 2px;
+    right: 2px;
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+
+  .streamItem i {
+    position: static;
+    opacity: 1;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    margin-left: 8px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Remove hover effects on mobile */
+  .streamItem:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .streamItem:hover img {
+    transform: none;
+  }
+  
+  .streamItem::after {
+    display: none;
+  }
+}
+
+/* Desktop grid view */
+@media (min-width: 769px) {
+  #searchlist {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1800px;
+    margin: 6% auto 0;
+  }
+
+  /* Keep all your original desktop styles */
+  .streamItem {
+    /* Your existing desktop styles */
+  }
+}
+
+/* Intermediate tablet views */
+@media (max-width: 1200px) and (min-width: 769px) {
+  #searchlist {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  #searchlist {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem;
+  }
+}
