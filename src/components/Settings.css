@@ -27,7 +27,7 @@
     transition: all 0.2s ease;
     
     &:hover {
-      background: #333;
+      background: #333333;
     }
 
     /* Section Headers */
