@@ -59,3 +59,65 @@
     line-height: 1.3;
   }
 }
+.streamItem {
+	width: 100%;
+	user-select: none;
+	background-color: var(--onBg);
+	padding: 1dvmin;
+	margin-bottom: 2dvmin;
+	border: var(--border);
+	border-radius: calc(var(--roundness) + 0.75vmin);
+	display: flex;
+	align-items: center;
+	position: relative;
+	transition: transform 0.4s;
+	overflow: hidden;
+
+	div,
+	span {
+		pointer-events: none;
+		transition: opacity 0.4s;
+	}
+
+	&:hover {
+		transform: scale(0.95);
+	}
+
+	&.ravel {
+		* {
+			opacity: 0;
+		}
+	}
+
+
+	span {
+		position: relative;
+		z-index: 0;
+		max-width: 34.7vmin;
+		margin-right: 1vmin;
+
+		img {
+			height: 19.5vmin;
+			width: auto;
+			border-radius: var(--roundness);
+		}
+
+
+		.duration {
+			position: absolute;
+			padding: 0 1vmin;
+			bottom: 1.2vmin;
+			right: 1.2vmin;
+			background-color: #000a;
+			color: #fffc;
+			border-radius: calc(var(--roundness)*0.6);
+			font-size: 0.8rem;
+		}
+	}
+
+	
+}
+
+#queuelist>a {
+	transition: initial;
+}
