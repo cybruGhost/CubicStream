@@ -3,7 +3,7 @@
 **CubicStream** is a sleek and powerful music web app that lets you stream audio from YouTube and other online sources in one smooth interface.
 
 ---
-## still ONGOING.Note it works with data on.if wifi does not work , data works
+## still ONGOING.fixed streaming issues
 
 ## 🚀 Features
 
