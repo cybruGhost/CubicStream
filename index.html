@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
 
   <meta name="description" content="The lightest and fastest audio streaming platform on the web.">
   <meta name="author" content="n-ce">
@@ -392,86 +393,203 @@
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateX(-4px);
   }
+/* Album Art - Enhanced with 3D effects and dynamic glow */
+#upperLayer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
 
-  /* Album Art */
-  #upperLayer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-  }
+#upperLayer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, var(--spotify-green) 0%, transparent 70%);
+  filter: blur(30px);
+  opacity: 0.3;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+}
 
+#upperLayer:hover::before {
+  opacity: 0.5;
+}
+
+#upperLayer img {
+  width: min(80%, 300px);
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  margin-bottom: 1.5rem;
+  transition: 
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.4, 1.2),
+    box-shadow 0.4s ease;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+}
+
+#upperLayer img:hover {
+  transform: 
+    scale(1.03) 
+    rotateZ(0.5deg) 
+    translateY(-5px);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Track Info - Enhanced typography and animations */
+#meta {
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+#meta h1 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
+  color: var(--spotify-light);
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+#meta h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--spotify-green);
+  transition: width 0.3s ease;
+}
+
+#meta h1:hover::after {
+  width: 40%;
+}
+
+#meta p {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--spotify-light-gray);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+#meta p:hover {
+  color: var(--spotify-light);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Control Buttons - Enhanced with micro-interactions */
+#upperButtonLayer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#upperButtonLayer button {
+  background: none;
+  border: none;
+  color: var(--spotify-light-gray);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+#upperButtonLayer button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+
+#upperButtonLayer button:hover {
+  color: var(--spotify-light);
+  transform: scale(1.1);
+}
+
+#upperButtonLayer button:hover::before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#loopButton.on {
+  color: var(--spotify-green);
+  animation: pulse 1.5s infinite;
+}
+
+#favButton:checked + label {
+  color: var(--spotify-green);
+  animation: heartBeat 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   #upperLayer img {
-    width: 80%;
-    max-width: 300px;
-    aspect-ratio: 1/1;
-    border-radius: 8px;
-    box-shadow: var(--spotify-shadow);
-    margin-bottom: 20px;
-    transition: var(--transition-medium);
+    width: min(90%, 250px);
+    border-radius: 10px;
   }
-
-  #upperLayer img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-  }
-
-  /* Track Info */
-  #meta {
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-  }
-
-  #meta h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--spotify-light);
-    margin-bottom: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  #meta p {
-    font-size: 1.2rem;
-    color: var(--spotify-light-gray);
-    margin-bottom: 20px;
-    font-weight: 500;
-  }
-
-  /* Control Buttons */
+  
   #upperButtonLayer {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 25px;
+    gap: 1.2rem;
   }
-
+  
   #upperButtonLayer button {
-    background: none;
-    border: none;
-    color: var(--spotify-light-gray);
     font-size: 1.2rem;
-    cursor: pointer;
-    transition: var(--transition-medium);
-    position: relative;
+    width: 2.2rem;
+    height: 2.2rem;
   }
-
-  #upperButtonLayer button:hover {
-    color: var(--spotify-light);
-    transform: scale(1.1);
-  }
-
-  #loopButton.on {
-    color: var(--spotify-green);
-  }
-
-  #favButton:checked + label {
-    color: var(--spotify-green);
-    animation: heartBeat 0.5s ease;
-  }
-
+}
   @keyframes heartBeat {
     0% { transform: scale(1); }
     25% { transform: scale(1.3); }
