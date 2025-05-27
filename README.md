@@ -34,7 +34,7 @@ cd CubicStream
 - **Queuing Features** 🚦
 - **Cubic Music collections** 🎷: create your own playlists disconnected from YouTube, share it with the world with share link.
 - **YouTube Playlists** 🎶: View them, queue them to the player. You can also both subscribe and import it into your own collections.
-- **Theming** 🎨: Modern Autonomous themed UI based on stream thumbnail with High Contrast Mode for increased legibility.
+- **Theming** 🎨: Modern Autonomous themed UI based on stream thumbnail with High Contrast Mode for increased legibility. Dynamic theme.
 - **PWA** 📱: Install as an app on your device which also allows you to play YouTube links with it from your OS share menu.
 - **Radio** 📻: Fetches similar streams and creates a playlist for your stream, great for music listeners.
 - **Library** 📚: Discover feed, history, favorites, Channels, YouTube playlists, custom playlists (collections) & Subscription Feed!
