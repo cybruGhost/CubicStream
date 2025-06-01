@@ -23,7 +23,8 @@
 
 ---
 # To Do
-fix cross origin error
+-fix cross origin error
+-Downloads
 ## 📦 Installation
 
 ```bash
