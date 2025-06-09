@@ -43,7 +43,13 @@ export const store: {
       on: Boolean(getSaved('HLS')),
       src: () => '',
       manifests: [],
-      api: ['https://pipedapi.kavin.rocks']
+      api: [
+        'https://pipedapi.kavin.rocks',
+        'https://piped-api-git-main-yt-audio.vercel.app',
+        'https://pipedapi-libre.kavin.rocks',
+        'https://pipedapi.syncpundit.io',
+        'https://pipedapi.in.projectsegfau.lt'
+      ]
     },
     hq: Boolean(getSaved('hq')),
     codec: 'opus',
@@ -55,7 +61,7 @@ export const store: {
     }).then(res => res.supported),
     data: undefined,
     legacy: !('OffscreenCanvas' in window),
-    fallback: '',
+    fallback: 'https://pipedapi-br.kavin.rocks', // Reliable fallback instance
     usePiped: true
   },
   lrcSync: () => '',
@@ -69,8 +75,20 @@ export const store: {
   },
   streamHistory: [],
   api: {
-    piped: ['https://pipedapi.kavin.rocks'],
-    invidious: ['https://iv.ggtyler.dev'],
+    piped: [
+      'https://pipedapi.kavin.rocks',
+      'https://pipedapi-libre.kavin.rocks',
+      'https://pipedapi.in.projectsegfau.lt',
+      'https://pipedapi.us.projectsegfau.lt',
+      'https://pipedapi.syncpundit.io'
+    ],
+    invidious: [
+      'https://iv.ggtyler.dev',
+      'https://invidious.nerdvpn.de',
+      'https://inv.odyssey346.dev',
+      'https://invidious.slipfox.xyz',
+      'https://invidious.flokinet.to'
+    ],
     hyperpipe: 'https://hyperpipeapi.onrender.com',
     index: 0
   },
@@ -94,5 +112,4 @@ export const store: {
     thumbnail: ''
   },
   downloadFormat: getSaved('dlFormat') as 'opus' || 'opus'
-}
-
+};
