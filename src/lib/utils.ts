@@ -104,7 +104,7 @@ export function handleXtags(audioStreams: AudioStream[]) {
 
 export async function getDownloadLink(id: string): Promise<string | null> {
   const streamUrl = 'https://youtu.be/' + id;
-  const dl = await fetch('https://cobalt-api.kwiatekmiki.com', {
+  const dl = await fetch('https://cobalt-api.kwiatekmiki.co', {
     method: 'POST',
     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
     body: JSON.stringify({
