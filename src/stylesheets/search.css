@@ -189,7 +189,7 @@
   width: 90%;
   padding: 30px;
   display: grid;
-  gap: 28px;
+  gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   animation: fadeInUp 1.2s ease forwards;
   opacity: 0;
@@ -455,7 +455,7 @@
 /* Responsive adjustments */
 @media (max-width: 1400px) {
   #searchlist {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -573,11 +573,11 @@
 @media (min-width: 769px) {
   #searchlist {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     padding: 2rem;
     width: 90%;
-    max-width: 1800px;
+    max-width: 1900px;
     margin: 6% auto 0;
   }
 
