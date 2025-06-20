@@ -140,23 +140,64 @@ nav a p {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 0rem;
       position: relative;
     }
+#upperLayer {
+  position: relative;
+}
+#upperLayer::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  opacity: 0.1;
+  z-index: -1;
+  filter: blur(20px);
+  transition: opacity 0.4s;
+}
+#upperLayer:hover::after {
+  opacity: 0.15;
+}
+  #upperLayer img {
+    width: min(80%, 300px);
+    aspect-ratio: 1/1;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.4, 1);
+    object-fit: cover;
+    
+    /* Glass Morphism Core */
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      0 -40px 30px rgba(255, 255, 255, 0.02) inset;
+    
+    /* Reflective Shine */
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+  }
 
-    #upperLayer img {
-      width: min(80%, 300px);
-      aspect-ratio: 1/1;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      margin-bottom: 1.5rem;
-      transition: transform var(--transition-medium);
-      object-fit: cover;
-    }
-
-    #upperLayer img:hover {
-      transform: scale(1.02);
-    }
+#upperLayer img:hover {
+  transform: scale(1.02);
+  
+  /* Enhanced glass on hover */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 -50px 40px rgba(255, 255, 255, 0.03) inset;
+  
+  /* Subtle glow */
+  filter: brightness(1.05);
+}
 
     /* Track Info */
     #meta {

@@ -403,7 +403,7 @@ body {
 }
 
 #title {
-  color: var(--spotify-light);
+ color: var(--spotify-green);
   font-weight: 660;
   font-size: 0.9rem;
   white-space: nowrap;
@@ -614,6 +614,101 @@ body {
   }
 }
 
+/* ===== COMPACT CONTROL BAR ===== */
+#upperButtonLayer {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* Volume - appears on hover */
+#volumeContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#volumeContainer label {
+  padding: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#volumeChanger {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left;
+  width: 80px;
+  height: 3px;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+#volumeContainer:hover #volumeChanger {
+  transform: translateY(-50%) scaleX(1);
+  opacity: 1;
+}
+
+/* Vertical volume alternative */
+@media (hover: none) {
+  #volumeChanger {
+    transform: rotate(-90deg) translateX(50%) scaleY(0);
+    transform-origin: right;
+    left: auto;
+    right: -10px;
+    top: -30px;
+  }
+  
+  #volumeContainer:hover #volumeChanger {
+    transform: rotate(-90deg) translateX(50%) scaleY(1);
+  }
+}
+
+/* Separated controls */
+#loopButton, 
+#favButton + label, 
+#moreBtn {
+  padding: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+#loopButton:hover,
+#moreBtn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Like button with bounce */
+#favButton {
+  display: none;
+}
+
+#favButton + label {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+#favButton:checked + label {
+  color: var(--primary);
+  transform: scale(1.2);
+}
+
+/* Active loop state */
+#loopButton.active {
+  color: var(--primary);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
 </style>
 </head>
 
@@ -653,7 +748,7 @@ body {
           <p data-translation="player_channel" id="author">Channel</p>
         </div>
   
-        <button class="ri-play-circle-fill" id="playButton" aria-label="Play Button" data-playbackState="none"></button>
+        <button class="ri-play-circle-fill" id="playButton" aria-label="Play" data-playbackState="none"></button>
       </div>
     </div>
   </header>
@@ -668,7 +763,19 @@ body {
         <div id="meta">
           <!-- title -->
           <!-- author -->
+      <div id="playerControls">
+        <button data-translation-aria-label="player_play_previous" class="ri-skip-back-line"
+          id="playPrevButton"></button>
+        <button data-translation-aria-label="player_seek_backward" class="ri-replay-15-line"
+          id="seekBwdButton"></button>
+        <!-- play button -->
 
+        <button data-translation-aria-label="player_seek_forward" class="ri-forward-15-line"
+          id="seekFwdButton"></button>
+        <button data-translation-aria-label="player_play_next" class="ri-skip-forward-line"
+          id="playNextButton"></button>
+
+      </div>
           <div id="upperButtonLayer">
             <span id="volumeContainer">
               <label data-translation-aria-label="player_volume" for="volumeChanger" class="ri-volume-up-fill"></label>
@@ -681,7 +788,6 @@ body {
           </div>
         </div>
       </div>
-
       <span id="trackline">
         <input type="range" value="0" id="progress" />
         <div>
@@ -689,22 +795,6 @@ body {
           <p id="fullDuration">00:00</p>
         </div>
       </span>
-
-      <div id="playerControls">
-        <button data-translation-aria-label="player_play_previous" class="ri-skip-back-line"
-          id="playPrevButton"></button>
-        <button data-translation-aria-label="player_seek_backward" class="ri-replay-15-line"
-          id="seekBwdButton"></button>
-
-        <!-- play button -->
-
-        <button data-translation-aria-label="player_seek_forward" class="ri-forward-15-line"
-          id="seekFwdButton"></button>
-        <button data-translation-aria-label="player_play_next" class="ri-skip-forward-line"
-          id="playNextButton"></button>
-
-      </div>
-
       <div id="playerSelectors">
 
         <select id="playSpeed">
