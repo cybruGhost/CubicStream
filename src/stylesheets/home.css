@@ -1,0 +1,15 @@
+#queuetools,
+#listTools {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  backdrop-filter: blur(0.5rem);
+  border-bottom-left-radius: var(--roundness);
+  border-bottom-right-radius: var(--roundness);
+  padding: 2vmin 0;
+  width: calc(92% + 3vmin);
+  
+  button::after {
+    content: attr(aria-label);
+  }
+}
