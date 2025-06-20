@@ -1,6 +1,6 @@
 p.snackbar {
   position: absolute;
-  z-index: 9;
+  z-index: 1001;
   top: 75%;
   width: calc(90dvmin - 1rem);
   padding: 0.5rem 1rem;
