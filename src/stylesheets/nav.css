@@ -97,7 +97,7 @@ nav a p {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--spotify-light);
       min-height: 100vh;
-      background: var(--spotify-dark);
+      background-color: var(--bg);
       padding-bottom: 120px;
       -webkit-font-smoothing: antialiased;
       line-height: 1.5;
