@@ -24,6 +24,7 @@
 ---
 # To Do
 -fix cross origin error
+-fix streaming errors
 -Downloads
 ## 📦 Installation
 
