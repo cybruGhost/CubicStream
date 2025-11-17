@@ -1,6 +1,6 @@
 # 🎵 CubicStream
 
-## still Ongoing ... Will Fix Streaming issues next week .
+## still Ongoing ... If you can contribute plz pullrequest .
 
 
 **CubicStream** is a sleek and powerful music web app that lets you stream audio from YouTube and other online sources in one smooth interface.
